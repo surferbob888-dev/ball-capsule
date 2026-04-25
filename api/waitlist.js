@@ -16,16 +16,33 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   try {
-    const { firstName, email, dogBreed, interest, website } = req.body;
+    const { firstName, email, dogBreed, interest, website, 'cf-turnstile-response': turnstileToken } = req.body;
 
     // ── 1. Honeypot check ──────────────────────────────────────────────────
-    // "website" is a hidden field humans never fill in. Bots do.
     if (website) {
-      // Silent success — don't tell bots they were caught
       return res.status(200).json({ ok: true });
     }
 
-    // ── 2. Basic validation ────────────────────────────────────────────────
+    // ── 2. Turnstile verification ──────────────────────────────────────────
+    if (!turnstileToken) {
+      return res.status(400).json({ error: 'Please complete the security check.' });
+    }
+
+    const turnstileVerify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: process.env.CLOUDFLARE_TURNSTILE_SECRET,
+        response: turnstileToken,
+      }),
+    });
+
+    const turnstileResult = await turnstileVerify.json();
+    if (!turnstileResult.success) {
+      return res.status(400).json({ error: 'Security check failed. Please try again.' });
+    }
+
+    // ── 3. Basic validation ────────────────────────────────────────────────
     if (!firstName || !email) {
       return res.status(400).json({ error: 'First name and email are required.' });
     }
@@ -35,7 +52,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Please enter a valid email address.' });
     }
 
-    // ── 3. Authenticate with Google ────────────────────────────────────────
+    // ── 4. Authenticate with Google ────────────────────────────────────────
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -46,7 +63,7 @@ export default async function handler(req, res) {
 
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // ── 4. Append row to Google Sheet ──────────────────────────────────────
+    // ── 5. Append row to Google Sheet ──────────────────────────────────────
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
       range: 'Sheet1!A:F',
