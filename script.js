@@ -31,7 +31,7 @@ if (waitlistForm) {
       }
 
       waitlistForm.reset();
-      formStatus.textContent = "You're on the list — we'll be in touch at launch.";
+      formStatus.textContent = "You're on the list — check your email (and spam folder just in case). We'll be in touch at launch.";
       formStatus.style.color = '#137333';
       submitButton.textContent = 'You\'re in ✓';
 
