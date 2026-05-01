@@ -119,8 +119,9 @@ p { margin: 0 0 16px; }
 .story-media img { width: 100%; aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; }
 .lifestyle-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .problem-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.split-grid { align-items: center; }
-.split-grid .card-image { max-width: 480px; margin: 0 auto; }
+.split-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
 /* ── Quick answer ── */
 .quick-answer { padding-top: 28px; }
 
