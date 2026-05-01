@@ -120,7 +120,7 @@ p { margin: 0 0 16px; }
 .lifestyle-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .problem-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .split-grid { align-items: center; }
-.split-grid .card-image { max-width: 480px; }
+.split-grid .card-image { max-width: 480px; margin: 0 auto; }
 /* ── Quick answer ── */
 .quick-answer { padding-top: 28px; }
 
