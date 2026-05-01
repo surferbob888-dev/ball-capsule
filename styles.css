@@ -116,7 +116,7 @@ p { margin: 0 0 16px; }
 .card-image { overflow: hidden; }
 .hero-media img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
 .product-shot img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
-.story-media img { width: 100%; aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; }
+.story-media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .lifestyle-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .problem-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .split-grid {
