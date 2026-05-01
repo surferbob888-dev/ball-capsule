@@ -208,8 +208,11 @@ input:focus, select:focus, textarea:focus {
 .note-legal { opacity: .9; }
 
 /* ── Responsive ── */
+.mobile-cta { display: none; }
+
 @media (max-width: 960px) {
   .nav-links { display: none; }
+  .mobile-cta { display: inline-flex; }
   .hero-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -221,9 +224,11 @@ input:focus, select:focus, textarea:focus {
   .split-grid, .waitlist-wrap, .steps-grid, .future-grid, .faq-grid, .lifestyle-strip { grid-template-columns: 1fr; }
   .reverse-on-mobile > :first-child { order: 2; }
   .reverse-on-mobile > :last-child { order: 1; }
+  .hero { padding-top: 40px; }
+  .pill { margin-bottom: 12px; }
 }
 @media (max-width: 640px) {
-  .section { padding: 64px 0; }
+  .section { padding: 48px 0; }
   .feature-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .hero-points { display: grid; gap: 8px; }
