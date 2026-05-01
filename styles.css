@@ -72,7 +72,7 @@ p { margin: 0 0 16px; }
   min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
 }
 .brand-lockup { display: flex; flex-direction: column; }
-.brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; }
+.brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .14em; color: var(--blue); text-transform: lowercase; font-style: italic; }
 .brand-name { font-weight: 600; font-size: 15px; }
 .nav-links { display: flex; gap: 20px; align-items: center; }
 .nav-links a { color: var(--muted); font-weight: 500; font-size: 14px; }
@@ -88,7 +88,7 @@ p { margin: 0 0 16px; }
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   grid-template-rows: auto auto;
-  gap: 40px;
+  gap: 24px 40px;
   align-items: start;
 }
 .hero-copy { max-width: 620px; grid-column: 1; grid-row: 1; }
@@ -115,9 +115,11 @@ p { margin: 0 0 16px; }
 }
 .card-image { overflow: hidden; }
 .hero-media img, .product-shot img, .story-media img, .lifestyle-shot img, .problem-shot img { width: 100%; object-fit: cover; }
-.hero-media img { aspect-ratio: 1 / 1; }
-.product-shot img { aspect-ratio: 1 / 1; }
-
+.hero-media img { aspect-ratio: 1 / 1; max-height: 500px; }
+.product-shot img { aspect-ratio: 1 / 1; max-height: 480px; }
+.story-media img { aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; max-height: 420px; }
+.lifestyle-shot img { aspect-ratio: 4 / 5; max-height: 480px; }
+.problem-shot img { aspect-ratio: 4 / 5; max-height: 480px; }
 /* ── Quick answer ── */
 .quick-answer { padding-top: 28px; }
 
@@ -150,9 +152,6 @@ p { margin: 0 0 16px; }
 .story-copy blockquote {
   margin: 24px 0 0; padding: 0 0 0 18px; border-left: 4px solid var(--blue); color: var(--muted); font-size: 18px;
 }
-.story-media img { aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; }
-.lifestyle-shot img { aspect-ratio: 4 / 5; }
-.problem-shot img { aspect-ratio: 4 / 5; }
 
 /* ── How it works ── */
 .hiw-main { margin-bottom: 16px; }
@@ -212,6 +211,7 @@ input:focus, select:focus, textarea:focus {
   .hero-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
+    gap: 16px;
   }
   .hero-copy { grid-column: 1; grid-row: 1; }
   .hero-media { grid-column: 1; grid-row: 2; }
