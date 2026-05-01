@@ -115,11 +115,13 @@ p { margin: 0 0 16px; }
 }
 .card-image { overflow: hidden; }
 .hero-media img, .product-shot img, .story-media img, .lifestyle-shot img, .problem-shot img { width: 100%; object-fit: cover; }
-.hero-media img { aspect-ratio: 1 / 1; max-height: 500px; }
-.product-shot img { aspect-ratio: 1 / 1; max-height: 480px; }
-.story-media img { aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; max-height: 420px; }
-.lifestyle-shot img { aspect-ratio: 4 / 5; max-height: 480px; }
-.problem-shot img { aspect-ratio: 4 / 5; max-height: 480px; }
+.hero-media img { aspect-ratio: 1 / 1; }
+.product-shot img { aspect-ratio: 1 / 1; }
+.story-media img { aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; }
+.lifestyle-shot img { aspect-ratio: 4 / 5; }
+.problem-shot img { aspect-ratio: 4 / 5; }
+.split-grid { max-width: var(--max); }
+.split-grid .card-image { max-height: 520px; overflow: hidden; }
 /* ── Quick answer ── */
 .quick-answer { padding-top: 28px; }
 
