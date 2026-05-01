@@ -114,14 +114,12 @@ p { margin: 0 0 16px; }
   background: var(--surface); border: 1px solid rgba(16,20,24,0.05); border-radius: var(--radius); box-shadow: var(--shadow);
 }
 .card-image { overflow: hidden; }
-.hero-media img, .product-shot img, .story-media img, .lifestyle-shot img, .problem-shot img { width: 100%; object-fit: cover; }
-.hero-media img { aspect-ratio: 1 / 1; }
-.product-shot img { aspect-ratio: 1 / 1; }
-.story-media img { aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; }
-.lifestyle-shot img { aspect-ratio: 4 / 5; }
-.problem-shot img { aspect-ratio: 4 / 5; }
-.split-grid { max-width: var(--max); }
-.split-grid .card-image { max-height: 520px; overflow: hidden; }
+.hero-media img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.product-shot img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.story-media img { width: 100%; aspect-ratio: 5 / 4; object-fit: contain; background: #e8f0f8; }
+.lifestyle-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.problem-shot img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.split-grid { align-items: center; }
 /* ── Quick answer ── */
 .quick-answer { padding-top: 28px; }
 
