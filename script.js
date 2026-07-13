@@ -31,6 +31,12 @@ if (waitlistForm) {
       }
 
       waitlistForm.reset();
+
+      // Meta pixel: report the signup so ads can optimize for Leads
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+
       formStatus.textContent = "You're on the list — check your email (and spam folder just in case). We'll be in touch at launch.";
       formStatus.style.color = '#137333';
       submitButton.textContent = 'You\'re in ✓';
